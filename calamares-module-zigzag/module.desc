@@ -1,0 +1,7 @@
+# Module metadata file for zigzag postinstall module
+# Syntax is YAML 1.2
+---
+type:       "job"
+name:       "zigzag"
+interface:  "python"
+script:     "main.py"
