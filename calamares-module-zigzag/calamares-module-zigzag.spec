@@ -7,7 +7,6 @@ Summary:        Postinstall module for calamares
 URL:            https://github.com/zigzag-linux
 Source0:        module.desc
 Source1:        main.py
-BuildArch:      noarch
 
 %description
 Postinstall module for calamares, contains Zigzag-specific scripts
