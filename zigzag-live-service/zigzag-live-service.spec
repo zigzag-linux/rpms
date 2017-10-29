@@ -1,5 +1,5 @@
 Name:           zigzag-live-service
-Version:        1.0
+Version:        1.0.0
 Release:        0
 License:        GPL-3.0
 Group:          System/Base
@@ -7,14 +7,10 @@ Summary:        Live media systemd service
 URL:            http://github.com/zigzag-linux
 Source0:        zigzag-live.service
 Requires:       zigzag-configuration
+BuildArch:      noarch
 
 %description
 Systemd service for zigzag live media additions
-
-%prep
-%setup -q -T -c
-
-%build
 
 %install
 install -Dpm 0644 %{SOURCE0} %{buildroot}%{_unitdir}/zigzag-live.service

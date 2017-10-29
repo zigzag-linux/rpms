@@ -1,5 +1,5 @@
 Name:           neovim-symlinks
-Version:        1.0.1
+Version:        1.0.0
 Release:        0
 Summary:        System-wide: Runs neovim if vi or vim is invoked
 License:        MIT
@@ -24,9 +24,6 @@ for link in "${_link_names[@]}"; do
 	ln -s nvim "$RPM_BUILD_ROOT/usr/bin/$link"
 done
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %files
 %defattr(-,root,root)
 %{_bindir}/edit
@@ -37,4 +34,3 @@ done
 %{_bindir}/vi
 %{_bindir}/view
 %{_bindir}/vim
-
