@@ -1,0 +1,10 @@
+[Unit]
+Description=LiveMedia Config Script
+Before=systemd-user-sessions.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/zigzag-write-configuration live
+
+[Install]
+WantedBy=multi-user.target
