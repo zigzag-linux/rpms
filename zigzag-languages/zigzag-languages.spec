@@ -14,6 +14,10 @@ BuildArch:      noarch
 %description
 Automated script for installing translation packages
 
+%prep
+
+%build
+
 %install
 install -D -m 0755 %{SOURCE0} %{buildroot}%{_bindir}/zigzag-languages
 

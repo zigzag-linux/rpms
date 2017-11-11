@@ -6,13 +6,23 @@ Group:          System/Base
 Summary:        Live media systemd service
 URL:            http://github.com/zigzag-linux
 Source0:        zigzag-live.service
+BuildRequires:  pkgconfig(systemd)
 Requires:       zigzag-configuration
 BuildArch:      noarch
 
 %description
 Systemd service for zigzag live media additions
 
+%prep
+
+%build
+
+%pre
+%service_add_pre zigzag-live.service
+
 %install
+install -d %{buildroot}%{_sbindir}
+ln -s %{_sbindir}/service %{buildroot}%{_sbindir}/rczigzag-live
 install -Dpm 0644 %{SOURCE0} %{buildroot}%{_unitdir}/zigzag-live.service
 
 %post
@@ -26,5 +36,6 @@ install -Dpm 0644 %{SOURCE0} %{buildroot}%{_unitdir}/zigzag-live.service
 
 %files
 %{_unitdir}/zigzag-live.service
+%{_sbindir}/rczigzag-live
 
 %changelog

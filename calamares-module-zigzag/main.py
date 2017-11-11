@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 from libcalamares.utils import target_env_call
 
 def pretty_name():

@@ -11,6 +11,10 @@ Source1:        main.py
 %description
 Postinstall module for calamares, contains Zigzag-specific scripts
 
+%prep
+
+%build
+
 %install
 install -Dpm 0644 %{SOURCE0} %{buildroot}%{_libdir}/calamares/modules/zigzag/module.desc
 install -Dpm 0644 %{SOURCE1} %{buildroot}%{_libdir}/calamares/modules/zigzag/main.py
