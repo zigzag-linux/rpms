@@ -4,7 +4,7 @@ Before=systemd-user-sessions.service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/zigzag-write-configuration --force live
+ExecStart=/usr/bin/zigzag-write-configuration --force live_boot
 
 [Install]
 WantedBy=multi-user.target

@@ -6,7 +6,7 @@ def pretty_name():
 
 
 def run():
-    return_code = target_env_call(['zigzag-write-configuration', '--force', 'postinstall'])
+    return_code = target_env_call(['zigzag-write-configuration', '--force', 'post_install'])
 
     if return_code != 0:
         return (
