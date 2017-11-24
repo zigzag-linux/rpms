@@ -28,6 +28,7 @@ install -D -m 0755 zigzag-languages.sh %{buildroot}%{_bindir}/zigzag-languages
 install -d %{buildroot}%{_unitdir}
 install -D -m 0644 *.{service,timer} %{buildroot}%{_unitdir}
 
+install -d %{buildroot}%{_sbindir}
 ln -s %{_sbindir}/service %{buildroot}%{_sbindir}/rczigzag-languages
 ln -s %{_sbindir}/service %{buildroot}%{_sbindir}/rczigzag-autoupdate
 
@@ -49,8 +50,8 @@ ln -s %{_sbindir}/service %{buildroot}%{_sbindir}/rczigzag-autoupdate
 
 %files
 %{_bindir}/zigzag-languages
-%{_bindir}/rczigzag-languages
-%{_bindir}/rczigzag-autoupdate
+%{_sbindir}/rczigzag-languages
+%{_sbindir}/rczigzag-autoupdate
 %{_unitdir}/zigzag-*
 
 %changelog
