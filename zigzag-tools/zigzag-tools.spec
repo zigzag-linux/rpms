@@ -26,7 +26,10 @@ This package contains additional maintenance utilities:
 %install
 install -D -m 0755 zigzag-languages.sh %{buildroot}%{_bindir}/zigzag-languages
 install -d %{buildroot}%{_unitdir}
-install -D -m 0755 *.{service,timer} %{buildroot}%{_unitdir}
+install -D -m 0644 *.{service,timer} %{buildroot}%{_unitdir}
+
+ln -s %{_sbindir}/service %{buildroot}%{_sbindir}/rczigzag-languages
+ln -s %{_sbindir}/service %{buildroot}%{_sbindir}/rczigzag-autoupdate
 
 %pre
 %service_add_pre zigzag-autoupdate.service zigzag-autoupdate.timer
@@ -46,6 +49,8 @@ install -D -m 0755 *.{service,timer} %{buildroot}%{_unitdir}
 
 %files
 %{_bindir}/zigzag-languages
+%{_bindir}/rczigzag-languages
+%{_bindir}/rczigzag-autoupdate
 %{_unitdir}/zigzag-*
 
 %changelog
