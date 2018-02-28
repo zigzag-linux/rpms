@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install needed translation packages
-# run: ./lang-install
+# Usage: zigzag-languages [-y]
 
 lang_short=${LANG:0:2}
 lang_full=${LANG:0:5}
