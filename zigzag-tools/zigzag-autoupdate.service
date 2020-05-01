@@ -1,6 +1,0 @@
-[Unit]
-Description=Autoupdate the system
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/zypper dup -y
