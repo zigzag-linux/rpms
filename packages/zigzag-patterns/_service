@@ -1,0 +1,14 @@
+<services>
+  <service name="tar_scm">
+    <param name="scm">git</param>
+    <param name="url">https://github.com/zigzag-linux/zigzag-patterns</param>
+    <param name="revision">master</param>
+    <param name="filename">patterns-zigzag</param>
+    <param name="extract">patterns-zigzag.spec</param>
+    <param name="versionformat">%cd</param>
+  </service>
+  <service name="set_version">
+    <param name="basename">patterns-zigzag</param>
+    <param name="file">_service:tar_scm:patterns-zigzag.spec</param>
+  </service>
+</services>
