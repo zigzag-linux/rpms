@@ -1,0 +1,39 @@
+diff --git a/src/modules/mount/main.py b/src/modules/mount/main.py
+index a3318d1a0..9422bbf9a 100644
+--- a/src/modules/mount/main.py
++++ b/src/modules/mount/main.py
+@@ -189,6 +189,9 @@ def mount_partition(root_mount_point, partition, partitions):
+ 
+         # Store created list in global storage so it can be used in the fstab module
+         libcalamares.globalstorage.insert("btrfsSubvolumes", btrfs_subvolumes)
++        # Create top level '@' subvolume
++        if libcalamares.job.configuration.get("createTopLevelBtrfsSubvolume", False):
++            subprocess.check_call(['btrfs', 'subvolume', 'create', root_mount_point + '/@'])
+         # Create the subvolumes that are in the completed list
+         for s in btrfs_subvolumes:
+             if not s["subvolume"]:
+@@ -196,9 +199,15 @@ def mount_partition(root_mount_point, partition, partitions):
+             os.makedirs(root_mount_point + os.path.dirname(s["subvolume"]), exist_ok=True)
+             subprocess.check_call(["btrfs", "subvolume", "create",
+                                    root_mount_point + s["subvolume"]])
++            if s.get('default') == True:
++                subvol_id = subprocess.check_output(['btrfs', 'inspect-internal',
++                    'rootid', root_mount_point + s['subvolume'] ]).strip()
++                subprocess.check_call(['btrfs', 'subvolume', 'set-default',
++                    subvol_id, root_mount_point])
+             if s["mountPoint"] == "/":
+                 # insert the root subvolume into global storage
+                 libcalamares.globalstorage.insert("btrfsRootSubvolume", s["subvolume"])
++
+         subprocess.check_call(["umount", "-v", root_mount_point])
+ 
+         device = partition["device"]
+@@ -207,7 +216,7 @@ def mount_partition(root_mount_point, partition, partitions):
+             device = os.path.join("/dev/mapper", partition["luksMapperName"])
+ 
+         # Mount the subvolumes
+-        for s in btrfs_subvolumes:
++        for s in sorted(btrfs_subvolumes, key=lambda vol: vol['mountPoint']):
+             mount_option = "subvol={}".format(s['subvolume'])
+             subvolume_mountpoint = mount_point[:-1] + s['mountPoint']
+             if libcalamares.utils.mount(device,

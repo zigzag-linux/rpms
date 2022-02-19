@@ -1,0 +1,12 @@
+diff -Naur a/calamares.desktop b/calamares.desktop
+--- a/calamares.desktop	2020-01-01 15:34:44.195698493 +0100
++++ b/calamares.desktop	2020-01-01 15:36:24.039123165 +0100
+@@ -5,7 +5,7 @@
+ GenericName=System Installer
+ Keywords=calamares;system;installer;
+ TryExec=calamares
+-Exec=sh -c "pkexec calamares"
++Exec=xdg-su -c /usr/bin/calamares
+ Comment=Calamares — System Installer
+ Icon=calamares
+ Terminal=false
