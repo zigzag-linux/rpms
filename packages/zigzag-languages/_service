@@ -1,0 +1,11 @@
+<services>
+  <service name="tar_scm">
+    <param name="scm">git</param>
+    <param name="url">https://github.com/zigzag-linux/zigzag-languages</param>
+    <param name="revision">master</param>
+    <param name="filename">zigzag-languages</param>
+    <param name="extension">tar.gz</param>
+    <param name="versionformat">%cd</param>
+  </service>
+  <service name="set_version"/>
+</services>
