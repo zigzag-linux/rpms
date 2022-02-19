@@ -1,2 +1,2 @@
-# rpm-specs
-Specs for Small RPM Packages
+# rpms
+Source files of rpm packages for zigzag-linux

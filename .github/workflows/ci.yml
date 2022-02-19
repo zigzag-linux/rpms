@@ -1,0 +1,28 @@
+---
+name: CI
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Upload changed files
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v15
+        with:
+          separator: ","
+          files: |
+            packages/**/*
+
+      - name: Upload changes to OBS
+        env:
+          AUTH_SECRET: ${{ secrets.AuthSecret }}
+        run: |
+          ./upload_changes.sh ${{ steps.changed-files.outputs.all_changed_files }}
