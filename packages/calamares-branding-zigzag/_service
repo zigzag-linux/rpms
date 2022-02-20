@@ -5,7 +5,7 @@
     <param name="revision">branding-zigzag</param>
     <param name="filename">calamares-branding-zigzag</param>
     <param name="extension">tar.gz</param>
-    <param name="version">3.2.49.1</param>
+    <param name="versionformat">%cd</param>
   </service>
   <service name="set_version"/>
 </services>

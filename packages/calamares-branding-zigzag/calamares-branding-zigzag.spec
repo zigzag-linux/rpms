@@ -1,3 +1,5 @@
+%define calamares_version %(rpm -q --qf '%%{version}' calamares)
+
 Name:           calamares-branding-zigzag
 Version:        0
 Release:        0
@@ -8,9 +10,11 @@ URL:            https://calamares.io
 Source0:        %{name}-%{version}.tar.gz
 
 BuildArch:      noarch
-Provides:       calamares-branding = %{version}
+Provides:       calamares-branding = %{calamares_version}
 Conflicts:      otherproviders(calamares-branding)
-Requires:       calamares = %{version}
+BuildRequires:  calamares
+BuildRequires:  calamares-branding-upstream
+Requires:       calamares = %{calamares_version}
 
 %description
 Calamares is an installer framework. By design it is very customizable,
