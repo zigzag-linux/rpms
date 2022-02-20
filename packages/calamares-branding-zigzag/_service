@@ -1,0 +1,11 @@
+<services>
+  <service name="tar_scm">
+    <param name="scm">git</param>
+    <param name="url">https://github.com/zigzag-linux/calamares-branding</param>
+    <param name="revision">branding-zigzag</param>
+    <param name="filename">calamares-branding-zigzag</param>
+    <param name="extension">tar.gz</param>
+    <param name="version">3.2.49.1</param>
+  </service>
+  <service name="set_version"/>
+</services>
