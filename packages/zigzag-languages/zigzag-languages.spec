@@ -1,5 +1,5 @@
 Name:           zigzag-languages
-Version:        1.0.0
+Version:        0
 Release:        0
 License:        GPL-3.0
 Group:          System/Base
@@ -9,7 +9,7 @@ Source0:        %{name}-%{version}.tar.gz
 
 BuildRequires:  python3-devel
 Requires:       python3
-Requires:       zypper
+Requires:       (zypper or dnf)
 BuildArch:      noarch
 
 %description
