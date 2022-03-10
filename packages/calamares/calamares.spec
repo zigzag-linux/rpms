@@ -1,3 +1,5 @@
+%global __requires_exclude qmlimport\\(calamares\\.slideshow.*
+
 Name:           calamares
 Version:        0
 Release:        0
@@ -45,6 +47,7 @@ BuildRequires:  pkgconfig(libatasmart)
 BuildRequires:  kparts-devel
 BuildRequires:  libblkid-devel
 Requires:       cryptsetup
+Requires:       os-prober
 
 # Webview module
 BuildRequires:  pkgconfig(Qt5WebEngine)
